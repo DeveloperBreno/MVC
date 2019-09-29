@@ -53,12 +53,12 @@ class Usuario extends Model{
 
     //Verificar duplicidade de E-mail
     public function userporemail(){
-        $query = "select nome, email from usuarios where email = ? ";
+        $query = "SELECT * FROM `Empresa`  ";
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(1,$this->__get('email'));
+        //$stmt->bindValue(1,$this->__get('email'));
         $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        //return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
     

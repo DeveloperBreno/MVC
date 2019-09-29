@@ -8,15 +8,27 @@ use App\Connection;
 use MF\Model\Container;
 
 class IndexController extends Action {
-
 	public function index() {
 
 		$this->render('index');
 	}
-
 	public function login(){
 		$this ->render('login');
 	}
+
+	public function entrar(){
+
+
+           $conn = Connection::getDb();
+           $usuario = Container::getModel('usuario');
+           $aux = $usuario->userporemail();
+           //$this->view->erroCadastro = false;
+           $this ->render('entrar');
+
+
+
+
+    	}
 
 	public function inscreverse(){
 		$this->view->erroCadastro = false;

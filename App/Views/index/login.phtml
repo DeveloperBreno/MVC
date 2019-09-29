@@ -1,52 +1,133 @@
-<div class="container-fluid h-100">
-	<div class="row">
-    
-    <div class="col-md-6 banner">
-    	<div class="row h-100 justify-content-center align-items-center">
-    		<div>
-				<div class="communicationItem">
-					<i class="fas fa-search fa-2x mr-3"></i>
-					Siga o que lhe interessa.
-				</div>
-				<div class="communicationItem">
-					<i class="fas fa-user-friends fa-2x mr-3"></i>
-					Saiba sobre o que as pessoas estão falando.
-				</div>
-				<div class="communicationItem">
-					<i class="far fa-comment fa-2x mr-3"></i>
-					Participe da conversa.
-				</div>
-			</div>
-		</div>
-    </div>
+<!DOCTYPE html>
 
-    <div class="col-md-6 pt-4 pl-5 pr-5">
-		<form>
-			<div class="row">
-				<div class="col">
-					<input type="text" class="form-control" placeholder="E-mail">
-				</div>
-				<div class="col">
-					<input type="text" class="form-control" placeholder="Senha">
-				</div>
-				<div class="col-auto">
-					<button type="submit" class="btn btn-primary mb-2">Entrar</button>
-				</div>
-			</div>
+<html>
+<head>
+<title>Login</title>
+
+</head>
+<body id="body">
+<div class="nav-item dropdown col-2 no-arrow float-right show">
+		<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		Entrar               </a>
+		<!-- Dropdown - User Information -->
+		<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in hide" aria-labelledby="userDropdown" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-32px, 40px, 0px);">
+		<a class="dropdown-item" href="#">
+		<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+		<form method="POST"  action="/entrar" >
+		<div class="form-group">
+
+		<label for="cpfescuro">CPF: </label>
+		<input type="text" name="FuncionarioCep"  id="cpfescuro" placeholder="CPF" class="form-control" />
+		<label for="senhaescura">Senha</label>
+		<input type="password" name="FuncionarioSenha"  id="senhaescura" placeholder="senha"  class="form-control" />
+
+		</div>
+		<button type="submit" class="btn btn-primary btn-block ">Entrar</button>
+
 		</form>
 
-		<div class="row pt-5 pl-5 pr-5">
-			<div class="col pl-5 pr-5">
-				<img src="/img/twitter_logo.png" />
-				<h1 class="title">Veja o que está acontecendo no mundo agora</h1>
+		</a>
 
-				<h2 class="mt-5 subtitle">Participe hoje do Twitter.</h2>
-				<a href="/inscreverse" class="btn btn-primary btn-block mb-2">Inscrever-se</a>
-			</div>	
 		</div>
+	</div>
+	</div>
 
+<div class="form-group col-10 mt-3">
+	<label class="col-sm-4"  style="text-align: right;" for="cpf">Meu CPF / CNPJ: </label>
+	<input type="Nome" class="col-sm-3" id="cpfCliente" >
+	<label class="col-sm-4"  style="text-align: right;" for="cpf"> </label>
 
-    </div>
+	<p class="col-sm-4 ml-5">
+	Digite seu CPF ou CNPJ, para verificar o andamento do veiculo.
 
-  </div>
+	</p>
+
 </div>
+
+
+<script>
+
+
+function TestaCPF(strCPF) {
+		var Soma;
+		var Resto;
+		Soma = 0;
+	if (strCPF == "00000000000") return false;
+
+	for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+	Resto = (Soma * 10) % 11;
+
+		if ((Resto == 10) || (Resto == 11))  Resto = 0;
+		if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
+
+	Soma = 0;
+		for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+		Resto = (Soma * 10) % 11;
+
+		if ((Resto == 10) || (Resto == 11))  Resto = 0;
+		if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
+		return true;
+	}
+
+
+
+
+$('#cpfCliente').keyup(()  =>{
+	let cpf = $('#cpfCliente').val();
+	if (cpf.length == 11 ) {
+		if (!TestaCPF(cpf)) {
+			$('.toAdd').html('');
+			alert("CPF invalido!");
+		}
+	}
+
+
+	// prototipo
+	if ($('#cpfCliente').val() == '45781005889') {
+		$('.toAdd').html('<div class="col-xl-3 col-lg-3"></div>'
+
++'<div class="col-xl-6 col-lg-6">'
++'<div class="card shadow mb-7">'
++'<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">'
++'<h6 class="m-0 font-weight-bold text-primary">Detalhes</h6>'
++'</div>'
++'<div class="card-body">'
++'<table class="table">'
++'<thead class="thead-primary">'
++'<tr>'
++'<th scope="col">Placa</th>	'
++'<th scope="col">PEÇAS | SERVIÇOS</th>'
++'</tr>'
++'</thead>'
++'<tbody>'
++'<tr>'
++'<td>ABC-1234</td>'
++'<td>RODA 22</td>'
++'</tr>'
++'</tbody>'
++'</table>'
++'</div>'
++'</div>'
++'</div>')
+	}
+
+
+
+});
+</script>
+
+
+
+<div class="row toAdd"></div>
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
