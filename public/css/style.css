@@ -1,0 +1,123 @@
+* {
+    margin: 0%;
+    padding: 0%
+}
+
+body {
+ 
+    font-size: 1em;
+    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    background: #e6e6e6
+
+}
+/*Cabeçalho*/
+#cabecalho{
+
+    background: steelblue;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    
+}
+
+#area-logo{
+    text-decoration: none;
+}
+
+h1{
+    color: #4e4e4e;
+    font-size: 2.5em;
+}
+
+.branco{
+    color: white;
+
+}
+
+
+#sub_cabecalho{
+    background: steelblue;
+    padding:15px ;
+    text-align: center;
+    
+
+}
+
+#sub_menu{
+    margin: 15px;    
+
+}
+/*Formatação do Menu*/ 
+#area-menu, #area-logo{
+    padding: 10px;
+    text-decoration: none;
+    
+}
+
+a{
+    text-decoration: none;
+    border-radius: 3px
+}
+
+a:link, a:visited{
+    color: #fff;
+    padding: 8px 12px;
+    transition: 0.75s;
+}
+
+a:hover{
+    color: steelblue;
+    background: #fff;
+    transition: 0.75s;
+    text-decoration: none;
+}
+
+.salir{
+    float: right;
+}
+/*principal*/
+
+#principal{
+    width: 1280px;
+    padding: 20px;
+    margin: 0 auto;
+    
+     
+}
+
+/*Postagens*/
+
+#area-postagens{
+    background: #e6e6e6;
+    width: 820px;
+    float: right; 
+    
+     
+    
+}
+
+.postagens{
+    background: #fff;
+    height: 450px;
+    margin: 5px;
+    border-radius: 7px;  
+}
+/*Lateral*/
+
+#area-lateral{
+    background: #e6e6e6;
+    float: left;
+    width: 410px; 
+}
+
+.postagens-lateral{
+    background: #fff;
+    border-radius: 7px;
+    height: 450px;
+    margin: 5px;
+}
+
+.carousel-inner{
+    padding: 20px;
+    width: 250px;
+}
